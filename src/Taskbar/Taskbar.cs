@@ -16,8 +16,8 @@ using Taskbar.Value;
 //     Creator: Taiizor
 //     Website: www.Soferity.com
 //     Created: 11.Apr.2021
-//     Changed: 11.Apr.2021
-//     Version: 1.0.0.3
+//     Changed: 12.Apr.2021
+//     Version: 1.0.0.4
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -37,7 +37,7 @@ namespace Taskbar
         public class Simple
         {
             /// <summary>
-            /// 
+            /// Gets detect screen taskbar location.
             /// </summary>
             /// <param name="Screen"></param>
             /// <returns></returns>
@@ -75,7 +75,7 @@ namespace Taskbar
             }
 
             /// <summary>
-            /// 
+            /// Gets detect primary screen taskbar location.
             /// </summary>
             public static Enums.LocationType SingleDetect
             {
@@ -93,7 +93,7 @@ namespace Taskbar
             }
 
             /// <summary>
-            /// 
+            /// Gets detect multiple screen taskbar location list value.
             /// </summary>
             public static List<Enums.LocationType> MultiDetectList
             {
@@ -118,7 +118,7 @@ namespace Taskbar
             }
 
             /// <summary>
-            /// 
+            /// Gets detect multiple screen taskbar location dictionary value.
             /// </summary>
             public static Dictionary<int, Enums.LocationType> MultiDetectDictionary
             {
@@ -140,6 +140,58 @@ namespace Taskbar
                     {
                         throw new Exception(Values.Exception);
                     }
+                }
+            }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="Screen"></param>
+            /// <param name="Edge"></param>
+            /// <param name="Location"></param>
+            /// <param name="Width"></param>
+            /// <param name="Height"></param>
+            /// <param name="Pixel"></param>
+            /// <returns></returns>
+            public static Point Location(Screen Screen, Enums.EdgeLocationType Edge, int Width, int Height, int Pixel = 32)
+            {
+                try
+                {
+                    return Edge switch
+                    {
+                        Enums.EdgeLocationType.TopLeft => Detect(Screen) switch
+                        {
+                            Enums.LocationType.Bot => new Point(Pixel, Pixel),
+                            Enums.LocationType.Top => new Point(Pixel, Screen.Bounds.Height - Screen.WorkingArea.Height + Pixel),
+                            Enums.LocationType.Left => new Point(Screen.Bounds.Width - Screen.WorkingArea.Width + Pixel, Pixel),
+                            _ => new Point(Pixel, Pixel),
+                        },
+                        Enums.EdgeLocationType.TopRight => Detect(Screen) switch
+                        {
+                            Enums.LocationType.Bot => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Pixel),
+                            Enums.LocationType.Top => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.Bounds.Height - Screen.WorkingArea.Height + Pixel),
+                            Enums.LocationType.Left => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Pixel),
+                            _ => new Point(Screen.WorkingArea.Width - (Width + Pixel), Pixel),
+                        },
+                        Enums.EdgeLocationType.BotLeft => Detect(Screen) switch
+                        {
+                            Enums.LocationType.Bot => new Point(Pixel, Screen.WorkingArea.Height - (Height - (Screen.Bounds.Height - Screen.WorkingArea.Height) + (Screen.Bounds.Height - Screen.WorkingArea.Height) + Pixel)),
+                            Enums.LocationType.Top => new Point(Pixel, Screen.WorkingArea.Height - (Height - (Screen.Bounds.Height - Screen.WorkingArea.Height) + Pixel)),
+                            Enums.LocationType.Left => new Point(Screen.Bounds.Width - Screen.WorkingArea.Width + Pixel, Screen.WorkingArea.Height - (Height + Pixel)),
+                            _ => new Point(Pixel, Screen.WorkingArea.Height - (Height + Pixel)),
+                        },
+                        _ => Detect(Screen) switch
+                        {
+                            Enums.LocationType.Bot => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height - (Screen.Bounds.Height - Screen.WorkingArea.Height) + (Screen.Bounds.Height - Screen.WorkingArea.Height) + Pixel)),
+                            Enums.LocationType.Top => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height - (Screen.Bounds.Height - Screen.WorkingArea.Height) + Pixel)),
+                            Enums.LocationType.Left => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height + Pixel)),
+                            _ => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height + Pixel)),
+                        },
+                    };
+                }
+                catch
+                {
+                    throw new Exception(Values.Exception);
                 }
             }
         }
@@ -182,7 +234,7 @@ namespace Taskbar
                     };
 
                     //Get the taskbar window rect in screen coordinates
-                    GetWindowRect(Values.BarData.hWnd, ref Values.BarData.Rect);
+                    GetWindowRect(Handle, ref Values.BarData.Rect);
                 }
                 catch
                 {

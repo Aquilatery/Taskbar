@@ -36,6 +36,29 @@
         /// <summary>
         /// 
         /// </summary>
+        public enum EdgeLocationType
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            TopLeft,
+            /// <summary>
+            /// 
+            /// </summary>
+            TopRight,
+            /// <summary>
+            /// 
+            /// </summary>
+            BotLeft,
+            /// <summary>
+            /// 
+            /// </summary>
+            BotRight
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public enum EdgeType : uint
         {
             /// <summary>

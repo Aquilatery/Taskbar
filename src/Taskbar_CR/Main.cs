@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using Taskbar.Enum;
 using static Taskbar.Taskbar;
@@ -97,6 +98,17 @@ namespace Taskbar_CR
         private void Button12_Click(object sender, EventArgs e)
         {
             Advanced.RefreshAll();
+        }
+
+        private void Button14_Click(object sender, EventArgs e)
+        {
+            Location = Simple.Location(Screen.PrimaryScreen, Enums.EdgeLocationType.TopLeft, Width, Height, 32);
+            Thread.Sleep(750);
+            Location = Simple.Location(Screen.PrimaryScreen, Enums.EdgeLocationType.TopRight, Width, Height, 32);
+            Thread.Sleep(750);
+            Location = Simple.Location(Screen.PrimaryScreen, Enums.EdgeLocationType.BotLeft, Width, Height, 32);
+            Thread.Sleep(750);
+            Location = Simple.Location(Screen.PrimaryScreen, Enums.EdgeLocationType.BotRight, Width, Height, 32);
         }
     }
 }
