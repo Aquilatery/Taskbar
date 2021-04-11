@@ -3,18 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.218
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taskbar", "Taskbar\Taskbar.csproj", "{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taskbar", "Taskbar\Taskbar.csproj", "{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taskbar_CR", "Taskbar_CR\Taskbar_CR.csproj", "{2B020FFF-04E2-442F-8B36-F08A6E9B634C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		GitHub|Any CPU = GitHub|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}.GitHub|Any CPU.ActiveCfg = GitHub|Any CPU
+		{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}.GitHub|Any CPU.Build.0 = GitHub|Any CPU
 		{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B020FFF-04E2-442F-8B36-F08A6E9B634C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B020FFF-04E2-442F-8B36-F08A6E9B634C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B020FFF-04E2-442F-8B36-F08A6E9B634C}.GitHub|Any CPU.ActiveCfg = GitHub|Any CPU
+		{2B020FFF-04E2-442F-8B36-F08A6E9B634C}.GitHub|Any CPU.Build.0 = GitHub|Any CPU
+		{2B020FFF-04E2-442F-8B36-F08A6E9B634C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B020FFF-04E2-442F-8B36-F08A6E9B634C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

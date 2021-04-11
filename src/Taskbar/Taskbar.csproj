@@ -1,9 +1,81 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <!--<TargetFramework>net48</TargetFramework>-->
+    <!--<TargetFrameworks>net48;net5.0;net6.0</TargetFrameworks>-->
+    <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0;net6.0</TargetFrameworks>-->
+    <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;netstandard2.0;netstandard2.1;netcoreapp2.1;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
+    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
+    <Version>1.0.0.2</Version>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>Taskbar</Title>
+    <PackageId>Taskbar</PackageId>
+    <Authors>Taiizor</Authors>
+    <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
+    <Summary>Best with multi-screen taskbar detection.</Summary>
+    <Description>$(Summary)
+.NET Windows Taskbar Detection - $(PackageId)</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Minor changes have been made.
+Changes are detailed at https://github.com/Soferity/Taskbar/releases</PackageReleaseNotes>
+    <PackageTags>Taskbar Taiizor Soferity C# CSharp VBC VB VisualBasic DotNET .NET NET Detecting Detection Windows</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!--<DocumentationFile>..\$(PackageId)\bin$(OutputPath)\$(Configuration)\$(TargetFramework)\$(PackageId).xml</DocumentationFile>-->
+    <PackageProjectUrl>https://github.com/Soferity/Taskbar</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/Soferity/Taskbar</RepositoryUrl>
+    <PackageDescription>$(Description)</PackageDescription>
+    <PackageIcon>TASKBAR.png</PackageIcon>
+    <Company>$(Authors)</Company>
+    <Owners>$(Authors)</Owners>
+    <AnalysisLevel>preview</AnalysisLevel>
+    <LangVersion>preview</LangVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <FileVersion>$(Version)</FileVersion>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>false</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <NoWarn>1591</NoWarn>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' OR '$(Configuration)|$(Platform)'=='GitHub|AnyCPU' OR '$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+    <PackageReference Include="System.Resources.Extensions" Version="6.0.0-preview.3.21201.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub">
+      <Version>1.1.0-beta-20204-02</Version>
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="Resources\TASKBAR.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\ICO.ico" />
+    <Resource Include="Resources\TASKBAR.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Properties\" />
