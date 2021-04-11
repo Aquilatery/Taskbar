@@ -9,7 +9,7 @@
 //     Website: www.Taiizor.com
 //     Created: 11.Apr.2021
 //     Changed: 11.Apr.2021
-//     Version: 1.0.0.0
+//     Version: 1.0.0.2
 //
 // |---------DO-NOT-REMOVE---------|
 
