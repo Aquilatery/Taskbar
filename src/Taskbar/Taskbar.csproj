@@ -54,6 +54,10 @@ Changes are detailed at https://github.com/Soferity/Taskbar/releases</PackageRel
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
