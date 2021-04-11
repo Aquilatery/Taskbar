@@ -45,6 +45,10 @@
             /// <summary>
             /// 
             /// </summary>
+            TopCenter,
+            /// <summary>
+            /// 
+            /// </summary>
             TopRight,
             /// <summary>
             /// 
@@ -53,7 +57,19 @@
             /// <summary>
             /// 
             /// </summary>
+            BotCenter,
+            /// <summary>
+            /// 
+            /// </summary>
             BotRight,
+            /// <summary>
+            /// 
+            /// </summary>
+            LeftCenter,
+            /// <summary>
+            /// 
+            /// </summary>
+            RightCenter,
             /// <summary>
             /// 
             /// </summary>

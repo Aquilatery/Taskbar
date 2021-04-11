@@ -102,17 +102,18 @@ namespace Taskbar_CR
 
         private void Button14_Click(object sender, EventArgs e)
         {
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.TopLeft, Width, Height, 32);
-            Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.TopRight, Width, Height, 32);
-            Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.BotLeft, Width, Height, 32);
-            Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.BotRight, Width, Height, 32);
-            Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.CalcCenter, Width, Height);
-            Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.FullCenter, Width, Height);
+            Location = Simple.SingleLocation(Enums.EdgeLocationType.CalcCenter, Width, Height, 32);
+            //Location = Simple.SingleLocation(Enums.EdgeLocationType.TopLeft, Width, Height, 32);
+            //Thread.Sleep(750);
+            //Location = Simple.SingleLocation(Enums.EdgeLocationType.TopRight, Width, Height, 32);
+            //Thread.Sleep(750);
+            //Location = Simple.SingleLocation(Enums.EdgeLocationType.BotLeft, Width, Height, 32);
+            //Thread.Sleep(750);
+            //Location = Simple.SingleLocation(Enums.EdgeLocationType.BotRight, Width, Height, 32);
+            //Thread.Sleep(750);
+            //Location = Simple.SingleLocation(Enums.EdgeLocationType.CalcCenter, Width, Height);
+            //Thread.Sleep(750);
+            //Location = Simple.SingleLocation(Enums.EdgeLocationType.FullCenter, Width, Height);
         }
 
         private void Button15_Click(object sender, EventArgs e)

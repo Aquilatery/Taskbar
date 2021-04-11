@@ -165,6 +165,13 @@ namespace Taskbar
                             Enums.LocationType.Left => new Point(Screen.Bounds.Width - Screen.WorkingArea.Width + Pixel, Pixel),
                             _ => new Point(Pixel, Pixel),
                         },
+                        Enums.EdgeLocationType.TopCenter => Detect(Screen) switch
+                        {
+                            Enums.LocationType.Bot => new Point((Screen.Bounds.Width / 2) - (Width / 2), Pixel),
+                            Enums.LocationType.Top => new Point((Screen.Bounds.Width / 2) - (Width / 2), Screen.Bounds.Height - Screen.WorkingArea.Height + Pixel),
+                            Enums.LocationType.Left => new Point(Screen.Bounds.Width - Screen.WorkingArea.Width + (Screen.WorkingArea.Width / 2) - (Width / 2), Pixel),
+                            _ => new Point((Screen.WorkingArea.Width / 2) - (Width / 2), Pixel),
+                        },
                         Enums.EdgeLocationType.TopRight => Detect(Screen) switch
                         {
                             Enums.LocationType.Bot => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Pixel),
@@ -179,6 +186,13 @@ namespace Taskbar
                             Enums.LocationType.Left => new Point(Screen.Bounds.Width - Screen.WorkingArea.Width + Pixel, Screen.WorkingArea.Height - (Height + Pixel)),
                             _ => new Point(Pixel, Screen.WorkingArea.Height - (Height + Pixel)),
                         },
+                        Enums.EdgeLocationType.BotCenter => Detect(Screen) switch
+                        {
+                            Enums.LocationType.Bot => new Point((Screen.Bounds.Width / 2) - (Width / 2), Screen.WorkingArea.Height - (Height - (Screen.Bounds.Height - Screen.WorkingArea.Height) + (Screen.Bounds.Height - Screen.WorkingArea.Height) + Pixel)),
+                            Enums.LocationType.Top => new Point((Screen.Bounds.Width / 2) - (Width / 2), Screen.WorkingArea.Height - (Height - (Screen.Bounds.Height - Screen.WorkingArea.Height) + Pixel)),
+                            Enums.LocationType.Left => new Point(Screen.Bounds.Width - Screen.WorkingArea.Width + (Screen.WorkingArea.Width / 2) - (Width / 2), Screen.WorkingArea.Height - (Height + Pixel)),
+                            _ => new Point((Screen.WorkingArea.Width / 2) - (Width / 2), Screen.WorkingArea.Height - (Height + Pixel)),
+                        },
                         Enums.EdgeLocationType.BotRight => Detect(Screen) switch
                         {
                             Enums.LocationType.Bot => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height - (Screen.Bounds.Height - Screen.WorkingArea.Height) + (Screen.Bounds.Height - Screen.WorkingArea.Height) + Pixel)),
@@ -186,7 +200,13 @@ namespace Taskbar
                             Enums.LocationType.Left => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height + Pixel)),
                             _ => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height + Pixel)),
                         },
-                        Enums.EdgeLocationType.CalcCenter => new Point((Screen.WorkingArea.Width / 2) - (Width / 2), (Screen.WorkingArea.Height / 2) - (Height / 2)),
+                        Enums.EdgeLocationType.CalcCenter => Detect(Screen) switch
+                        {
+                            Enums.LocationType.Bot => new Point((Screen.Bounds.Width / 2) - (Width / 2), (Screen.Bounds.Height / 2) - (Height / 2) - (Screen.Bounds.Height - Screen.WorkingArea.Height) / 2),
+                            Enums.LocationType.Top => new Point((Screen.Bounds.Width / 2) - (Width / 2), Screen.Bounds.Height - Screen.WorkingArea.Height + (Screen.WorkingArea.Height / 2) - (Height / 2)),
+                            Enums.LocationType.Left => new Point(Screen.Bounds.Width - Screen.WorkingArea.Width + (Screen.WorkingArea.Width / 2) - (Width / 2), (Screen.Bounds.Height / 2) - (Height / 2)),
+                            _ => new Point((Screen.Bounds.Width / 2) - (Width / 2) - (Screen.Bounds.Width - Screen.WorkingArea.Width) / 2, (Screen.Bounds.Height / 2) - (Height / 2)),
+                        },
                         _ => new Point((Screen.Bounds.Width / 2) - (Width / 2), (Screen.Bounds.Height / 2) - (Height / 2)),
                     };
                 }
