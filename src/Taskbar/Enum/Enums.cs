@@ -107,7 +107,25 @@
             SetState = 0x0000000A,
         }
 
-        public enum StateType
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum ShowStateType : uint
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            Hide = 0x00,
+            /// <summary>
+            /// 
+            /// </summary>
+            Show = 0x01
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum HideStateType : uint
         {
             /// <summary>
             /// 

@@ -20,12 +20,47 @@ namespace Taskbar_CR
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            Dictionary<int, Enums.LocationType> Screen = Simple.MultiDetect;
+            Dictionary<int, Enums.LocationType> Screen = Simple.MultiDetectDictionary;
 
             foreach (KeyValuePair<int, Enums.LocationType> Var in Screen)
             {
                 MessageBox.Show(Var.Key + ": " + Var.Value);
             }
+        }
+
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            List<Enums.LocationType> Screen = Simple.MultiDetectList;
+
+            foreach (Enums.LocationType Var in Screen)
+            {
+                MessageBox.Show(Var.ToString());
+            }
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Advanced.AlwaysOnTop.ToString());
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Advanced.AutoHide.ToString());
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Advanced.Position.ToString());
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            Advanced.Hide();
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            Advanced.Show();
         }
     }
 }

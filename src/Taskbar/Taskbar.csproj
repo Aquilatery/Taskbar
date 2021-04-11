@@ -1,10 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
-    <!--<TargetFrameworks>net48;net5.0;net6.0</TargetFrameworks>-->
-    <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0;net6.0</TargetFrameworks>-->
-    <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;netstandard2.0;netstandard2.1;netcoreapp2.1;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>-->
+    <!--<TargetFramework>net48</TargetFramework>-->
+    <!--<TargetFrameworks>net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
+    <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0-windows;net6.0-windows</TargetFrameworks>-->
+    <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;netcoreapp3.0-windows;netcoreapp3.1-windows;net5.0-windows;net6.0-windows</TargetFrameworks>
+    <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
     <Version>1.0.0.2</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
@@ -19,7 +20,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Minor changes have been made.
+    <PackageReleaseNotes>Major changes have been made.
 Changes are detailed at https://github.com/Soferity/Taskbar/releases</PackageReleaseNotes>
     <PackageTags>Taskbar Taiizor Soferity C# CSharp VBC VB VisualBasic DotNET .NET NET Detecting Detection Windows</PackageTags>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -51,10 +52,6 @@ Changes are detailed at https://github.com/Soferity/Taskbar/releases</PackageRel
       <Version>1.1.0-beta-20204-02</Version>
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 
   <ItemGroup>
