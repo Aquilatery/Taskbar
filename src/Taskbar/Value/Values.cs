@@ -20,6 +20,16 @@ namespace Taskbar.Value
         /// <summary>
         /// 
         /// </summary>
+        public const string AutoHide = "The taskbar is set to auto hide.";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Nothing = "Nothing was found.";
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const string ClassName = "Shell_TrayWnd";
 
         /// <summary>

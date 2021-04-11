@@ -95,18 +95,17 @@ namespace Taskbar
             /// <summary>
             /// 
             /// </summary>
-            public static Dictionary<int, Enums.LocationType> MultiDetectDictionary
+            public static List<Enums.LocationType> MultiDetectList
             {
                 get
                 {
                     try
                     {
-                        Dictionary<int, Enums.LocationType> Result = new();
-                        int Count = 0;
+                        List<Enums.LocationType> Result = new();
 
                         foreach (Screen Screen in Screen.AllScreens)
                         {
-                            Result.Add(Count++, Detect(Screen));
+                            Result.Add(Detect(Screen));
                         }
 
                         return Result;
@@ -121,17 +120,18 @@ namespace Taskbar
             /// <summary>
             /// 
             /// </summary>
-            public static List<Enums.LocationType> MultiDetectList
+            public static Dictionary<int, Enums.LocationType> MultiDetectDictionary
             {
                 get
                 {
                     try
                     {
-                        List<Enums.LocationType> Result = new();
+                        Dictionary<int, Enums.LocationType> Result = new();
+                        int Count = 0;
 
                         foreach (Screen Screen in Screen.AllScreens)
                         {
-                            Result.Add(Detect(Screen));
+                            Result.Add(Count++, Detect(Screen));
                         }
 
                         return Result;
@@ -263,7 +263,7 @@ namespace Taskbar
                 {
                     try
                     {
-                        if (RefreshBoundsAndPosition())
+                        if (RefreshBoundsAndPosition)
                         {
                             return Rectangle.FromLTRB(Values.BarData.Rect.Left, Values.BarData.Rect.Top, Values.BarData.Rect.Right, Values.BarData.Rect.Bot);
                         }
@@ -304,7 +304,7 @@ namespace Taskbar
                 {
                     try
                     {
-                        if (RefreshBoundsAndPosition())
+                        if (RefreshBoundsAndPosition)
                         {
                             return (Enums.LocationType)Values.BarData.uEdge;
                         }
@@ -353,17 +353,157 @@ namespace Taskbar
             /// <summary>
             /// 
             /// </summary>
+            /// <param name="Screen"></param>
             /// <returns></returns>
-            private static bool RefreshBoundsAndPosition()
+            public static Rectangle FindDockedTaskbar(Screen Screen)
             {
                 try
                 {
-                    //! SHAppBarMessage returns IntPtr.Zero **if it fails**
-                    return SHAppBarMessage(Enums.MessageType.GetTaskbarPos, ref Values.BarData) != IntPtr.Zero;
+                    Rectangle Rect = new();
+
+                    int LeftDockedWidth = Math.Abs(Math.Abs(Screen.Bounds.Left) - Math.Abs(Screen.WorkingArea.Left));
+                    int TopDockedHeight = Math.Abs(Math.Abs(Screen.Bounds.Top) - Math.Abs(Screen.WorkingArea.Top));
+                    int RightDockedWidth = Screen.Bounds.Width - LeftDockedWidth - Screen.WorkingArea.Width;
+                    int BotDockedHeight = Screen.Bounds.Height - TopDockedHeight - Screen.WorkingArea.Height;
+
+                    if (LeftDockedWidth > 0)
+                    {
+                        Rect.X = Screen.Bounds.Left;
+                        Rect.Y = Screen.Bounds.Top;
+                        Rect.Width = LeftDockedWidth;
+                        Rect.Height = Screen.Bounds.Height;
+                    }
+                    else if (RightDockedWidth > 0)
+                    {
+                        Rect.X = Screen.WorkingArea.Right;
+                        Rect.Y = Screen.Bounds.Top;
+                        Rect.Width = RightDockedWidth;
+                        Rect.Height = Screen.Bounds.Height;
+                    }
+                    else if (TopDockedHeight > 0)
+                    {
+                        Rect.X = Screen.WorkingArea.Left;
+                        Rect.Y = Screen.Bounds.Top;
+                        Rect.Width = Screen.WorkingArea.Width;
+                        Rect.Height = TopDockedHeight;
+                    }
+                    else if (BotDockedHeight > 0)
+                    {
+                        Rect.X = Screen.WorkingArea.Left;
+                        Rect.Y = Screen.WorkingArea.Bottom;
+                        Rect.Width = Screen.WorkingArea.Width;
+                        Rect.Height = BotDockedHeight;
+                    }
+                    else
+                    {
+                        //throw new Exception(Values.Nothing);
+
+                        Rect.X = Screen.WorkingArea.Left;
+                        Rect.Y = Screen.WorkingArea.Top;
+                        Rect.Width = Screen.WorkingArea.Width;
+                        Rect.Height = Screen.WorkingArea.Height;
+                    }
+
+                    return Rect;
                 }
                 catch
                 {
                     throw new Exception(Values.Exception);
+                }
+            }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
+            public static List<Rectangle> FindDockedTaskbarsList
+            {
+                get
+                {
+                    try
+                    {
+                        List<Rectangle> DockedRects = new();
+
+                        foreach (Screen Screen in Screen.AllScreens)
+                        {
+                            /*
+                            if (!Screen.Bounds.Equals(Screen.WorkingArea))
+                            {
+                                DockedRects.Add(FindDockedTaskbar(Screen));
+                            }
+                            */
+                            DockedRects.Add(FindDockedTaskbar(Screen));
+                        }
+
+                        if (DockedRects.Count == 0)
+                        {
+                            //throw new Exception(Values.AutoHide);
+                        }
+
+                        return DockedRects;
+                    }
+                    catch
+                    {
+                        throw new Exception(Values.Exception);
+                    }
+                }
+            }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
+            public static Dictionary<int, Rectangle> FindDockedTaskbarsDictionary
+            {
+                get
+                {
+                    try
+                    {
+                        Dictionary<int, Rectangle> DockedRects = new();
+                        int Count = 0;
+
+                        foreach (Screen Screen in Screen.AllScreens)
+                        {
+                            /*
+                            if (!Screen.Bounds.Equals(Screen.WorkingArea))
+                            {
+                                DockedRects.Add(Count++, FindDockedTaskbar(Screen));
+                            }
+                            */
+                            DockedRects.Add(Count++, FindDockedTaskbar(Screen));
+                        }
+
+                        if (DockedRects.Count == 0)
+                        {
+                            //throw new Exception(Values.AutoHide);
+                        }
+
+                        return DockedRects;
+                    }
+                    catch
+                    {
+                        throw new Exception(Values.Exception);
+                    }
+                }
+            }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <returns></returns>
+            private static bool RefreshBoundsAndPosition
+            {
+                get
+                {
+                    try
+                    {
+                        //! SHAppBarMessage returns IntPtr.Zero **if it fails**
+                        return SHAppBarMessage(Enums.MessageType.GetTaskbarPos, ref Values.BarData) != IntPtr.Zero;
+                    }
+                    catch
+                    {
+                        throw new Exception(Values.Exception);
+                    }
                 }
             }
         }

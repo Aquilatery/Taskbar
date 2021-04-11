@@ -53,7 +53,7 @@
             /// <summary>
             /// 
             /// </summary>
-            Bottom = 3
+            Bot = 3
         }
 
         /// <summary>

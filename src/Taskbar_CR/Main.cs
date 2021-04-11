@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using Taskbar.Enum;
 using static Taskbar.Taskbar;
@@ -18,16 +19,6 @@ namespace Taskbar_CR
             MessageBox.Show(Simple.SingleDetect.ToString());
         }
 
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            Dictionary<int, Enums.LocationType> Screen = Simple.MultiDetectDictionary;
-
-            foreach (KeyValuePair<int, Enums.LocationType> Var in Screen)
-            {
-                MessageBox.Show(Var.Key + ": " + Var.Value);
-            }
-        }
-
         private void Button8_Click(object sender, EventArgs e)
         {
             List<Enums.LocationType> Screen = Simple.MultiDetectList;
@@ -35,6 +26,16 @@ namespace Taskbar_CR
             foreach (Enums.LocationType Var in Screen)
             {
                 MessageBox.Show(Var.ToString());
+            }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Dictionary<int, Enums.LocationType> Screen = Simple.MultiDetectDictionary;
+
+            foreach (KeyValuePair<int, Enums.LocationType> Var in Screen)
+            {
+                MessageBox.Show("Screen " + Var.Key + " => " + Var.Value);
             }
         }
 
@@ -61,6 +62,26 @@ namespace Taskbar_CR
         private void Button7_Click(object sender, EventArgs e)
         {
             Advanced.Show();
+        }
+
+        private void Button9_Click(object sender, EventArgs e)
+        {
+            List<Rectangle> Rectangle = Advanced.FindDockedTaskbarsList;
+
+            foreach (Rectangle Var in Rectangle)
+            {
+                MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y + "\nWidth: " + Var.Width + "\nHeight: " + Var.Height);
+            }
+        }
+
+        private void Button10_Click(object sender, EventArgs e)
+        {
+            Dictionary<int, Rectangle> Rectangle = Advanced.FindDockedTaskbarsDictionary;
+
+            foreach (KeyValuePair<int, Rectangle> Var in Rectangle)
+            {
+                MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y + "\n\tWidth: " + Var.Value.Width + "\n\tHeight: " + Var.Value.Height);
+            }
         }
     }
 }
