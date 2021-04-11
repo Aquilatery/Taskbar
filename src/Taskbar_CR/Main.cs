@@ -102,7 +102,7 @@ namespace Taskbar_CR
 
         private void Button14_Click(object sender, EventArgs e)
         {
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.CalcCenter, Width, Height, 32);
+            Location = Simple.SingleLocation(Enums.EdgeLocationType.LeftCenter, Width, Height, 32);
             //Location = Simple.SingleLocation(Enums.EdgeLocationType.TopLeft, Width, Height, 32);
             //Thread.Sleep(750);
             //Location = Simple.SingleLocation(Enums.EdgeLocationType.TopRight, Width, Height, 32);

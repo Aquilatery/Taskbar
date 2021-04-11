@@ -183,6 +183,21 @@
             /// </summary>
             Show = 0x02
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        internal enum Type
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            Simple,
+            /// <summary>
+            /// 
+            /// </summary>
+            Advanced
+        }
         #endregion
     }
 }
