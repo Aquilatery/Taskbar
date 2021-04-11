@@ -110,7 +110,9 @@ namespace Taskbar_CR
             Thread.Sleep(750);
             Location = Simple.SingleLocation(Enums.EdgeLocationType.BotRight, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.Center, Width, Height, 32);
+            Location = Simple.SingleLocation(Enums.EdgeLocationType.CalcCenter, Width, Height);
+            Thread.Sleep(750);
+            Location = Simple.SingleLocation(Enums.EdgeLocationType.FullCenter, Width, Height);
         }
 
         private void Button15_Click(object sender, EventArgs e)
@@ -147,7 +149,15 @@ namespace Taskbar_CR
                 MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
             }
 
-            Location = Simple.MultiLocationList(Enums.EdgeLocationType.Center, Width, Height);
+            Location = Simple.MultiLocationList(Enums.EdgeLocationType.CalcCenter, Width, Height);
+
+            foreach (Point Var in Location)
+            {
+                this.Location = Var;
+                MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
+            }
+
+            Location = Simple.MultiLocationList(Enums.EdgeLocationType.FullCenter, Width, Height);
 
             foreach (Point Var in Location)
             {
@@ -190,7 +200,15 @@ namespace Taskbar_CR
                 MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
             }
 
-            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.Center, Width, Height);
+            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.CalcCenter, Width, Height);
+
+            foreach (KeyValuePair<int, Point> Var in Location)
+            {
+                this.Location = Var.Value;
+                MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
+            }
+
+            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.FullCenter, Width, Height);
 
             foreach (KeyValuePair<int, Point> Var in Location)
             {

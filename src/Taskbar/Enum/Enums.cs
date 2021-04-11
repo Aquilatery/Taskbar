@@ -57,7 +57,11 @@
             /// <summary>
             /// 
             /// </summary>
-            Center
+            CalcCenter,
+            /// <summary>
+            /// 
+            /// </summary>
+            FullCenter
         }
 
         /// <summary>

@@ -186,7 +186,8 @@ namespace Taskbar
                             Enums.LocationType.Left => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height + Pixel)),
                             _ => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height + Pixel)),
                         },
-                        _ => new Point((Screen.WorkingArea.Width / 2) - (Width / 2), (Screen.WorkingArea.Height / 2) - (Height / 2)),
+                        Enums.EdgeLocationType.CalcCenter => new Point((Screen.WorkingArea.Width / 2) - (Width / 2), (Screen.WorkingArea.Height / 2) - (Height / 2)),
+                        _ => new Point((Screen.Bounds.Width / 2) - (Width / 2), (Screen.Bounds.Height / 2) - (Height / 2)),
                     };
                 }
                 catch
