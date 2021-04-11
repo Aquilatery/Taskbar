@@ -180,10 +180,31 @@ namespace Taskbar
                         cbSize = (uint)Marshal.SizeOf(typeof(Structs.Data)),
                         hWnd = FindWindow(Values.ClassName, null)
                     };
+
+                    //Get the taskbar window rect in screen coordinates
+                    GetWindowRect(Values.BarData.hWnd, ref Values.BarData.Rect);
                 }
                 catch
                 {
                     throw new Exception(Values.Exception);
+                }
+            }
+
+            /// <summary>
+            /// Gets a data value.
+            /// </summary>
+            public static Structs.Data Data
+            {
+                get
+                {
+                    try
+                    {
+                        return Values.BarData;
+                    }
+                    catch
+                    {
+                        throw new Exception(Values.Exception);
+                    }
                 }
             }
 
@@ -263,7 +284,7 @@ namespace Taskbar
                 {
                     try
                     {
-                        if (RefreshBoundsAndPosition)
+                        if (RefreshAll())
                         {
                             return Rectangle.FromLTRB(Values.BarData.Rect.Left, Values.BarData.Rect.Top, Values.BarData.Rect.Right, Values.BarData.Rect.Bot);
                         }
@@ -304,7 +325,7 @@ namespace Taskbar
                 {
                     try
                     {
-                        if (RefreshBoundsAndPosition)
+                        if (RefreshAll())
                         {
                             return (Enums.LocationType)Values.BarData.uEdge;
                         }
@@ -488,22 +509,45 @@ namespace Taskbar
             }
 
             /// <summary>
-            /// 
+            /// Refresh data value.
             /// </summary>
             /// <returns></returns>
-            private static bool RefreshBoundsAndPosition
+            public static bool RefreshData()
             {
-                get
+                try
                 {
-                    try
+                    Values.BarData = new Structs.Data
                     {
-                        //! SHAppBarMessage returns IntPtr.Zero **if it fails**
-                        return SHAppBarMessage(Enums.MessageType.GetTaskbarPos, ref Values.BarData) != IntPtr.Zero;
-                    }
-                    catch
-                    {
-                        throw new Exception(Values.Exception);
-                    }
+                        cbSize = (uint)Marshal.SizeOf(typeof(Structs.Data)),
+                        hWnd = FindWindow(Values.ClassName, null)
+                    };
+
+                    //Get the taskbar window rect in screen coordinates
+                    return GetWindowRect(Values.BarData.hWnd, ref Values.BarData.Rect);
+                }
+                catch
+                {
+                    throw new Exception(Values.Exception);
+                }
+            }
+
+            /// <summary>
+            /// Refresh all value.
+            /// </summary>
+            /// <returns></returns>
+            public static bool RefreshAll()
+            {
+                try
+                {
+                    //! SHAppBarMessage returns IntPtr.Zero **if it fails**
+                    //return SHAppBarMessage(Enums.MessageType.GetTaskbarPos, ref Values.BarData) != IntPtr.Zero;
+                    SHAppBarMessage(Enums.MessageType.GetTaskbarPos, ref Values.BarData);
+
+                    return RefreshData();
+                }
+                catch
+                {
+                    throw new Exception(Values.Exception);
                 }
             }
         }

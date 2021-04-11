@@ -83,5 +83,20 @@ namespace Taskbar_CR
                 MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y + "\n\tWidth: " + Var.Value.Width + "\n\tHeight: " + Var.Value.Height);
             }
         }
+
+        private void Button11_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Advanced.Data.Rect.Left + "\n" + Advanced.Data.Rect.Top + "\n" + Advanced.Data.Rect.Right + "\n" + Advanced.Data.Rect.Bot);
+        }
+
+        private void Button13_Click(object sender, EventArgs e)
+        {
+            Advanced.RefreshData();
+        }
+
+        private void Button12_Click(object sender, EventArgs e)
+        {
+            Advanced.RefreshAll();
+        }
     }
 }

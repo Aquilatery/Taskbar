@@ -30,7 +30,7 @@ namespace Taskbar.Value
         /// <summary>
         /// 
         /// </summary>
-        public const string ClassName = "Shell_TrayWnd";
+        internal const string ClassName = "Shell_TrayWnd";
 
         /// <summary>
         /// 
