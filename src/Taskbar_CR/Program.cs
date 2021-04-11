@@ -16,7 +16,7 @@ namespace Taskbar_CR
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
 #endif
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Main());
         }
     }
 }

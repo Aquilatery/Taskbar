@@ -24,7 +24,7 @@ namespace Taskbar.Struct
             public IntPtr hWnd;
             public uint uCallbackMessage;
             public Enums.EdgeType uEdge;
-            public Rectangle rect;
+            public Rectangle Rect;
             public int lParam;
         }
 
@@ -37,7 +37,7 @@ namespace Taskbar.Struct
             public int Left;
             public int Top;
             public int Right;
-            public int Bottom;
+            public int Bot;
         }
         #endregion
     }

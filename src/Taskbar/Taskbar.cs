@@ -7,16 +7,17 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Taskbar.Enum;
 using Taskbar.Struct;
+using Taskbar.Value;
 
 #endregion
 
 // |---------DO-NOT-REMOVE---------|
 //
 //     Creator: Taiizor
-//     Website: www.Taiizor.com
+//     Website: www.Soferity.com
 //     Created: 11.Apr.2021
 //     Changed: 11.Apr.2021
-//     Version: 1.0.0.2
+//     Version: 1.0.0.3
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -29,23 +30,6 @@ namespace Taskbar
     /// </summary>
     public class Taskbar
     {
-        #region Values
-        /// <summary>
-        /// 
-        /// </summary>
-        private const string Exception = "An unexpected error occurred.";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private const string ClassName = "Shell_TrayWnd";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private static Structs.Data BarData;
-        #endregion
-
         #region Simple Taskbar
         /// <summary>
         /// 
@@ -86,7 +70,7 @@ namespace Taskbar
                 }
                 catch
                 {
-                    throw new Exception(Exception);
+                    throw new Exception(Values.Exception);
                 }
             }
 
@@ -103,7 +87,7 @@ namespace Taskbar
                     }
                     catch
                     {
-                        throw new Exception(Exception);
+                        throw new Exception(Values.Exception);
                     }
                 }
             }
@@ -129,7 +113,7 @@ namespace Taskbar
                     }
                     catch
                     {
-                        throw new Exception(Exception);
+                        throw new Exception(Values.Exception);
                     }
                 }
             }
@@ -154,7 +138,7 @@ namespace Taskbar
                     }
                     catch
                     {
-                        throw new Exception(Exception);
+                        throw new Exception(Values.Exception);
                     }
                 }
             }
@@ -169,7 +153,7 @@ namespace Taskbar
         {
             #region DLL Imports
 
-            [DllImport("user32.dll", SetLastError = true)]
+            [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
             private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
             [DllImport("user32.dll")]
@@ -191,15 +175,15 @@ namespace Taskbar
             {
                 try
                 {
-                    BarData = new Structs.Data
+                    Values.BarData = new Structs.Data
                     {
                         cbSize = (uint)Marshal.SizeOf(typeof(Structs.Data)),
-                        hWnd = FindWindow(ClassName, null)
+                        hWnd = FindWindow(Values.ClassName, null)
                     };
                 }
                 catch
                 {
-                    throw new Exception(Exception);
+                    throw new Exception(Values.Exception);
                 }
             }
 
@@ -215,12 +199,12 @@ namespace Taskbar
                 {
                     try
                     {
-                        int state = SHAppBarMessage(Enums.MessageType.GetState, ref BarData).ToInt32();
-                        return !((Enums.ShowStateType)state).HasFlag(Enums.ShowStateType.Show);
+                        int State = SHAppBarMessage(Enums.MessageType.GetState, ref Values.BarData).ToInt32();
+                        return !((Enums.ShowStateType)State).HasFlag(Enums.ShowStateType.Show);
                     }
                     catch
                     {
-                        throw new Exception(Exception);
+                        throw new Exception(Values.Exception);
                     }
                 }
             }
@@ -236,12 +220,12 @@ namespace Taskbar
                 {
                     try
                     {
-                        int state = SHAppBarMessage(Enums.MessageType.GetState, ref BarData).ToInt32();
-                        return ((Enums.HideStateType)state).HasFlag(Enums.HideStateType.Hide);
+                        int State = SHAppBarMessage(Enums.MessageType.GetState, ref Values.BarData).ToInt32();
+                        return ((Enums.HideStateType)State).HasFlag(Enums.HideStateType.Hide);
                     }
                     catch
                     {
-                        throw new Exception(Exception);
+                        throw new Exception(Values.Exception);
                     }
                 }
             }
@@ -255,17 +239,17 @@ namespace Taskbar
                 {
                     try
                     {
-                        Structs.Rectangle rect = new();
-                        if (GetWindowRect(Handle, ref rect))
+                        Structs.Rectangle Rect = new();
+                        if (GetWindowRect(Handle, ref Rect))
                         {
-                            return Rectangle.FromLTRB(rect.Left, rect.Top, rect.Right, rect.Bottom);
+                            return Rectangle.FromLTRB(Rect.Left, Rect.Top, Rect.Right, Rect.Bot);
                         }
 
                         return Rectangle.Empty;
                     }
                     catch
                     {
-                        throw new Exception(Exception);
+                        throw new Exception(Values.Exception);
                     }
                 }
             }
@@ -281,14 +265,14 @@ namespace Taskbar
                     {
                         if (RefreshBoundsAndPosition())
                         {
-                            return Rectangle.FromLTRB(BarData.rect.Left, BarData.rect.Top, BarData.rect.Right, BarData.rect.Bottom);
+                            return Rectangle.FromLTRB(Values.BarData.Rect.Left, Values.BarData.Rect.Top, Values.BarData.Rect.Right, Values.BarData.Rect.Bot);
                         }
 
                         return CurrentBounds;
                     }
                     catch
                     {
-                        throw new Exception(Exception);
+                        throw new Exception(Values.Exception);
                     }
                 }
             }
@@ -296,17 +280,17 @@ namespace Taskbar
             /// <summary>
             /// Gets the taskbar's window handle.
             /// </summary>
-            private static IntPtr Handle
+            public static IntPtr Handle
             {
                 get
                 {
                     try
                     {
-                        return BarData.hWnd;
+                        return Values.BarData.hWnd;
                     }
                     catch
                     {
-                        throw new Exception(Exception);
+                        throw new Exception(Values.Exception);
                     }
                 }
             }
@@ -322,14 +306,14 @@ namespace Taskbar
                     {
                         if (RefreshBoundsAndPosition())
                         {
-                            return (Enums.LocationType)BarData.uEdge;
+                            return (Enums.LocationType)Values.BarData.uEdge;
                         }
 
                         return Enums.LocationType.Unknown;
                     }
                     catch
                     {
-                        throw new Exception(Exception);
+                        throw new Exception(Values.Exception);
                     }
                 }
             }
@@ -342,11 +326,11 @@ namespace Taskbar
                 try
                 {
                     const int SW_HIDE = 0;
-                    ShowWindow(Handle, SW_HIDE);
+                    _ = ShowWindow(Handle, SW_HIDE);
                 }
                 catch
                 {
-                    throw new Exception(Exception);
+                    throw new Exception(Values.Exception);
                 }
             }
 
@@ -358,11 +342,11 @@ namespace Taskbar
                 try
                 {
                     const int SW_SHOW = 1;
-                    ShowWindow(Handle, SW_SHOW);
+                    _ = ShowWindow(Handle, SW_SHOW);
                 }
                 catch
                 {
-                    throw new Exception(Exception);
+                    throw new Exception(Values.Exception);
                 }
             }
 
@@ -375,11 +359,11 @@ namespace Taskbar
                 try
                 {
                     //! SHAppBarMessage returns IntPtr.Zero **if it fails**
-                    return SHAppBarMessage(Enums.MessageType.GetTaskbarPos, ref BarData) != IntPtr.Zero;
+                    return SHAppBarMessage(Enums.MessageType.GetTaskbarPos, ref Values.BarData) != IntPtr.Zero;
                 }
                 catch
                 {
-                    throw new Exception(Exception);
+                    throw new Exception(Values.Exception);
                 }
             }
         }
