@@ -53,7 +53,11 @@
             /// <summary>
             /// 
             /// </summary>
-            BotRight
+            BotRight,
+            /// <summary>
+            /// 
+            /// </summary>
+            Center
         }
 
         /// <summary>

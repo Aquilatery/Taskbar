@@ -148,7 +148,6 @@ namespace Taskbar
             /// </summary>
             /// <param name="Screen"></param>
             /// <param name="Edge"></param>
-            /// <param name="Location"></param>
             /// <param name="Width"></param>
             /// <param name="Height"></param>
             /// <param name="Pixel"></param>
@@ -180,14 +179,90 @@ namespace Taskbar
                             Enums.LocationType.Left => new Point(Screen.Bounds.Width - Screen.WorkingArea.Width + Pixel, Screen.WorkingArea.Height - (Height + Pixel)),
                             _ => new Point(Pixel, Screen.WorkingArea.Height - (Height + Pixel)),
                         },
-                        _ => Detect(Screen) switch
+                        Enums.EdgeLocationType.BotRight => Detect(Screen) switch
                         {
                             Enums.LocationType.Bot => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height - (Screen.Bounds.Height - Screen.WorkingArea.Height) + (Screen.Bounds.Height - Screen.WorkingArea.Height) + Pixel)),
                             Enums.LocationType.Top => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height - (Screen.Bounds.Height - Screen.WorkingArea.Height) + Pixel)),
                             Enums.LocationType.Left => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height + Pixel)),
                             _ => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), Screen.WorkingArea.Height - (Height + Pixel)),
                         },
+                        _ => new Point((Screen.WorkingArea.Width / 2) - (Width / 2), (Screen.WorkingArea.Height / 2) - (Height / 2)),
                     };
+                }
+                catch
+                {
+                    throw new Exception(Values.Exception);
+                }
+            }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="Edge"></param>
+            /// <param name="Width"></param>
+            /// <param name="Height"></param>
+            /// <param name="Pixel"></param>
+            /// <returns></returns>
+            public static Point SingleLocation(Enums.EdgeLocationType Edge, int Width, int Height, int Pixel = 32)
+            {
+                try
+                {
+                    return Location(Screen.PrimaryScreen, Edge, Width, Height, Pixel);
+                }
+                catch
+                {
+                    throw new Exception(Values.Exception);
+                }
+            }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="Edge"></param>
+            /// <param name="Width"></param>
+            /// <param name="Height"></param>
+            /// <param name="Pixel"></param>
+            /// <returns></returns>
+            public static List<Point> MultiLocationList(Enums.EdgeLocationType Edge, int Width, int Height, int Pixel = 32)
+            {
+                try
+                {
+                    List<Point> Result = new();
+
+                    foreach (Screen Screen in Screen.AllScreens)
+                    {
+                        Result.Add(Location(Screen, Edge, Width, Height, Pixel));
+                    }
+
+                    return Result;
+                }
+                catch
+                {
+                    throw new Exception(Values.Exception);
+                }
+            }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="Edge"></param>
+            /// <param name="Width"></param>
+            /// <param name="Height"></param>
+            /// <param name="Pixel"></param>
+            /// <returns></returns>
+            public static Dictionary<int, Point> MultiLocationDictionary(Enums.EdgeLocationType Edge, int Width, int Height, int Pixel = 32)
+            {
+                try
+                {
+                    Dictionary<int, Point> Result = new();
+                    int Count = 0;
+
+                    foreach (Screen Screen in Screen.AllScreens)
+                    {
+                        Result.Add(Count++, Location(Screen, Edge, Width, Height, Pixel));
+                    }
+
+                    return Result;
                 }
                 catch
                 {

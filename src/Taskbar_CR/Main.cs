@@ -102,13 +102,101 @@ namespace Taskbar_CR
 
         private void Button14_Click(object sender, EventArgs e)
         {
-            Location = Simple.Location(Screen.PrimaryScreen, Enums.EdgeLocationType.TopLeft, Width, Height, 32);
+            Location = Simple.SingleLocation(Enums.EdgeLocationType.TopLeft, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Simple.Location(Screen.PrimaryScreen, Enums.EdgeLocationType.TopRight, Width, Height, 32);
+            Location = Simple.SingleLocation(Enums.EdgeLocationType.TopRight, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Simple.Location(Screen.PrimaryScreen, Enums.EdgeLocationType.BotLeft, Width, Height, 32);
+            Location = Simple.SingleLocation(Enums.EdgeLocationType.BotLeft, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Simple.Location(Screen.PrimaryScreen, Enums.EdgeLocationType.BotRight, Width, Height, 32);
+            Location = Simple.SingleLocation(Enums.EdgeLocationType.BotRight, Width, Height, 32);
+            Thread.Sleep(750);
+            Location = Simple.SingleLocation(Enums.EdgeLocationType.Center, Width, Height, 32);
+        }
+
+        private void Button15_Click(object sender, EventArgs e)
+        {
+            List<Point> Location = Simple.MultiLocationList(Enums.EdgeLocationType.TopLeft, Width, Height, 32);
+
+            foreach (Point Var in Location)
+            {
+                this.Location = Var;
+                MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
+            }
+
+            Location = Simple.MultiLocationList(Enums.EdgeLocationType.TopRight, Width, Height, 32);
+
+            foreach (Point Var in Location)
+            {
+                this.Location = Var;
+                MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
+            }
+
+            Location = Simple.MultiLocationList(Enums.EdgeLocationType.BotLeft, Width, Height, 32);
+
+            foreach (Point Var in Location)
+            {
+                this.Location = Var;
+                MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
+            }
+
+            Location = Simple.MultiLocationList(Enums.EdgeLocationType.BotRight, Width, Height, 32);
+
+            foreach (Point Var in Location)
+            {
+                this.Location = Var;
+                MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
+            }
+
+            Location = Simple.MultiLocationList(Enums.EdgeLocationType.Center, Width, Height);
+
+            foreach (Point Var in Location)
+            {
+                this.Location = Var;
+                MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
+            }
+        }
+
+        private void Button16_Click(object sender, EventArgs e)
+        {
+            Dictionary<int, Point> Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.TopLeft, Width, Height, 32);
+
+            foreach (KeyValuePair<int, Point> Var in Location)
+            {
+                this.Location = Var.Value;
+                MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
+            }
+
+            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.TopRight, Width, Height, 32);
+
+            foreach (KeyValuePair<int, Point> Var in Location)
+            {
+                this.Location = Var.Value;
+                MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
+            }
+
+            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.BotLeft, Width, Height, 32);
+
+            foreach (KeyValuePair<int, Point> Var in Location)
+            {
+                this.Location = Var.Value;
+                MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
+            }
+
+            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.BotRight, Width, Height, 32);
+
+            foreach (KeyValuePair<int, Point> Var in Location)
+            {
+                this.Location = Var.Value;
+                MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
+            }
+
+            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.Center, Width, Height);
+
+            foreach (KeyValuePair<int, Point> Var in Location)
+            {
+                this.Location = Var.Value;
+                MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
+            }
         }
     }
 }
