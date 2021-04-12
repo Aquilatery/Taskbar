@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-using Taskbar.Enum;
+using static Taskbar.Enum.Enums;
 using static Taskbar.Taskbar;
 
 #endregion
@@ -26,9 +26,9 @@ namespace Taskbar_CR
 
         private void Button8_Click(object sender, EventArgs e)
         {
-            List<Enums.LocationType> Screen = Simple.MultiDetectList;
+            List<LocationType> Screen = Simple.MultiDetectList;
 
-            foreach (Enums.LocationType Var in Screen)
+            foreach (LocationType Var in Screen)
             {
                 MessageBox.Show(Var.ToString());
             }
@@ -36,9 +36,9 @@ namespace Taskbar_CR
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            Dictionary<int, Enums.LocationType> Screen = Simple.MultiDetectDictionary;
+            Dictionary<int, LocationType> Screen = Simple.MultiDetectDictionary;
 
-            foreach (KeyValuePair<int, Enums.LocationType> Var in Screen)
+            foreach (KeyValuePair<int, LocationType> Var in Screen)
             {
                 MessageBox.Show("Screen " + Var.Key + " => " + Var.Value);
             }
@@ -46,30 +46,30 @@ namespace Taskbar_CR
 
         private void Button14_Click(object sender, EventArgs e)
         {
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.TopLeft, Width, Height, 32);
+            Location = Simple.SingleLocation(EdgeLocationType.TopLeft, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.TopCenter, Width, Height, 32);
+            Location = Simple.SingleLocation(EdgeLocationType.TopCenter, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.TopRight, Width, Height, 32);
+            Location = Simple.SingleLocation(EdgeLocationType.TopRight, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.BotLeft, Width, Height, 32);
+            Location = Simple.SingleLocation(EdgeLocationType.BotLeft, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.BotCenter, Width, Height, 32);
+            Location = Simple.SingleLocation(EdgeLocationType.BotCenter, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.BotRight, Width, Height, 32);
+            Location = Simple.SingleLocation(EdgeLocationType.BotRight, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.LeftCenter, Width, Height, 32);
+            Location = Simple.SingleLocation(EdgeLocationType.LeftCenter, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.RightCenter, Width, Height, 32);
+            Location = Simple.SingleLocation(EdgeLocationType.RightCenter, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.CalcCenter, Width, Height);
+            Location = Simple.SingleLocation(EdgeLocationType.CalcCenter, Width, Height);
             Thread.Sleep(750);
-            Location = Simple.SingleLocation(Enums.EdgeLocationType.FullCenter, Width, Height);
+            Location = Simple.SingleLocation(EdgeLocationType.FullCenter, Width, Height);
         }
 
         private void Button15_Click(object sender, EventArgs e)
         {
-            List<Point> Location = Simple.MultiLocationList(Enums.EdgeLocationType.TopLeft, Width, Height, 32);
+            List<Point> Location = Simple.MultiLocationList(EdgeLocationType.TopLeft, Width, Height, 32);
 
             foreach (Point Var in Location)
             {
@@ -77,7 +77,7 @@ namespace Taskbar_CR
                 MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
             }
 
-            Location = Simple.MultiLocationList(Enums.EdgeLocationType.TopCenter, Width, Height, 32);
+            Location = Simple.MultiLocationList(EdgeLocationType.TopCenter, Width, Height, 32);
 
             foreach (Point Var in Location)
             {
@@ -85,7 +85,7 @@ namespace Taskbar_CR
                 MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
             }
 
-            Location = Simple.MultiLocationList(Enums.EdgeLocationType.TopRight, Width, Height, 32);
+            Location = Simple.MultiLocationList(EdgeLocationType.TopRight, Width, Height, 32);
 
             foreach (Point Var in Location)
             {
@@ -93,7 +93,7 @@ namespace Taskbar_CR
                 MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
             }
 
-            Location = Simple.MultiLocationList(Enums.EdgeLocationType.BotLeft, Width, Height, 32);
+            Location = Simple.MultiLocationList(EdgeLocationType.BotLeft, Width, Height, 32);
 
             foreach (Point Var in Location)
             {
@@ -101,7 +101,7 @@ namespace Taskbar_CR
                 MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
             }
 
-            Location = Simple.MultiLocationList(Enums.EdgeLocationType.BotCenter, Width, Height, 32);
+            Location = Simple.MultiLocationList(EdgeLocationType.BotCenter, Width, Height, 32);
 
             foreach (Point Var in Location)
             {
@@ -109,7 +109,7 @@ namespace Taskbar_CR
                 MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
             }
 
-            Location = Simple.MultiLocationList(Enums.EdgeLocationType.BotRight, Width, Height, 32);
+            Location = Simple.MultiLocationList(EdgeLocationType.BotRight, Width, Height, 32);
 
             foreach (Point Var in Location)
             {
@@ -117,7 +117,7 @@ namespace Taskbar_CR
                 MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
             }
 
-            Location = Simple.MultiLocationList(Enums.EdgeLocationType.LeftCenter, Width, Height, 32);
+            Location = Simple.MultiLocationList(EdgeLocationType.LeftCenter, Width, Height, 32);
 
             foreach (Point Var in Location)
             {
@@ -125,7 +125,7 @@ namespace Taskbar_CR
                 MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
             }
 
-            Location = Simple.MultiLocationList(Enums.EdgeLocationType.RightCenter, Width, Height, 32);
+            Location = Simple.MultiLocationList(EdgeLocationType.RightCenter, Width, Height, 32);
 
             foreach (Point Var in Location)
             {
@@ -133,7 +133,7 @@ namespace Taskbar_CR
                 MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
             }
 
-            Location = Simple.MultiLocationList(Enums.EdgeLocationType.CalcCenter, Width, Height);
+            Location = Simple.MultiLocationList(EdgeLocationType.CalcCenter, Width, Height);
 
             foreach (Point Var in Location)
             {
@@ -141,7 +141,7 @@ namespace Taskbar_CR
                 MessageBox.Show("X: " + Var.X + "\nY: " + Var.Y);
             }
 
-            Location = Simple.MultiLocationList(Enums.EdgeLocationType.FullCenter, Width, Height);
+            Location = Simple.MultiLocationList(EdgeLocationType.FullCenter, Width, Height);
 
             foreach (Point Var in Location)
             {
@@ -152,7 +152,7 @@ namespace Taskbar_CR
 
         private void Button16_Click(object sender, EventArgs e)
         {
-            Dictionary<int, Point> Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.TopLeft, Width, Height, 32);
+            Dictionary<int, Point> Location = Simple.MultiLocationDictionary(EdgeLocationType.TopLeft, Width, Height, 32);
 
             foreach (KeyValuePair<int, Point> Var in Location)
             {
@@ -160,7 +160,7 @@ namespace Taskbar_CR
                 MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
             }
 
-            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.TopCenter, Width, Height, 32);
+            Location = Simple.MultiLocationDictionary(EdgeLocationType.TopCenter, Width, Height, 32);
 
             foreach (KeyValuePair<int, Point> Var in Location)
             {
@@ -168,7 +168,7 @@ namespace Taskbar_CR
                 MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
             }
 
-            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.TopRight, Width, Height, 32);
+            Location = Simple.MultiLocationDictionary(EdgeLocationType.TopRight, Width, Height, 32);
 
             foreach (KeyValuePair<int, Point> Var in Location)
             {
@@ -176,7 +176,7 @@ namespace Taskbar_CR
                 MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
             }
 
-            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.BotLeft, Width, Height, 32);
+            Location = Simple.MultiLocationDictionary(EdgeLocationType.BotLeft, Width, Height, 32);
 
             foreach (KeyValuePair<int, Point> Var in Location)
             {
@@ -184,7 +184,7 @@ namespace Taskbar_CR
                 MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
             }
 
-            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.BotCenter, Width, Height, 32);
+            Location = Simple.MultiLocationDictionary(EdgeLocationType.BotCenter, Width, Height, 32);
 
             foreach (KeyValuePair<int, Point> Var in Location)
             {
@@ -192,7 +192,7 @@ namespace Taskbar_CR
                 MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
             }
 
-            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.BotRight, Width, Height, 32);
+            Location = Simple.MultiLocationDictionary(EdgeLocationType.BotRight, Width, Height, 32);
 
             foreach (KeyValuePair<int, Point> Var in Location)
             {
@@ -200,7 +200,7 @@ namespace Taskbar_CR
                 MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
             }
 
-            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.LeftCenter, Width, Height, 32);
+            Location = Simple.MultiLocationDictionary(EdgeLocationType.LeftCenter, Width, Height, 32);
 
             foreach (KeyValuePair<int, Point> Var in Location)
             {
@@ -208,7 +208,7 @@ namespace Taskbar_CR
                 MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
             }
 
-            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.RightCenter, Width, Height, 32);
+            Location = Simple.MultiLocationDictionary(EdgeLocationType.RightCenter, Width, Height, 32);
 
             foreach (KeyValuePair<int, Point> Var in Location)
             {
@@ -216,7 +216,7 @@ namespace Taskbar_CR
                 MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
             }
 
-            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.CalcCenter, Width, Height);
+            Location = Simple.MultiLocationDictionary(EdgeLocationType.CalcCenter, Width, Height);
 
             foreach (KeyValuePair<int, Point> Var in Location)
             {
@@ -224,12 +224,37 @@ namespace Taskbar_CR
                 MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
             }
 
-            Location = Simple.MultiLocationDictionary(Enums.EdgeLocationType.FullCenter, Width, Height);
+            Location = Simple.MultiLocationDictionary(EdgeLocationType.FullCenter, Width, Height);
 
             foreach (KeyValuePair<int, Point> Var in Location)
             {
                 this.Location = Var.Value;
                 MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tX: " + Var.Value.X + "\n\tY: " + Var.Value.Y);
+            }
+        }
+
+        private void Button19_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Width: " + Simple.SingleSize.Width + "\nHeight: " + Simple.SingleSize.Height);
+        }
+
+        private void Button20_Click(object sender, EventArgs e)
+        {
+            List<Size> Size = Simple.MultiSizeList;
+
+            foreach (Size Var in Size)
+            {
+                MessageBox.Show("Width: " + Var.Width + "\nHeight: " + Var.Height);
+            }
+        }
+
+        private void Button21_Click(object sender, EventArgs e)
+        {
+            Dictionary<int, Size> Size = Simple.MultiSizeDictionary;
+
+            foreach (KeyValuePair<int, Size> Var in Size)
+            {
+                MessageBox.Show("Screen " + Var.Key + " =>\n" + "\tWidth: " + Var.Value.Width + "\n\tHeight: " + Var.Value.Height);
             }
         }
 
@@ -265,25 +290,25 @@ namespace Taskbar_CR
 
         private void Button17_Click(object sender, EventArgs e)
         {
-            Location = Advanced.SingleLocation(Enums.EdgeLocationType.TopLeft, Width, Height, 32);
+            Location = Advanced.SingleLocation(EdgeLocationType.TopLeft, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Advanced.SingleLocation(Enums.EdgeLocationType.TopCenter, Width, Height, 32);
+            Location = Advanced.SingleLocation(EdgeLocationType.TopCenter, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Advanced.SingleLocation(Enums.EdgeLocationType.TopRight, Width, Height, 32);
+            Location = Advanced.SingleLocation(EdgeLocationType.TopRight, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Advanced.SingleLocation(Enums.EdgeLocationType.BotLeft, Width, Height, 32);
+            Location = Advanced.SingleLocation(EdgeLocationType.BotLeft, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Advanced.SingleLocation(Enums.EdgeLocationType.BotCenter, Width, Height, 32);
+            Location = Advanced.SingleLocation(EdgeLocationType.BotCenter, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Advanced.SingleLocation(Enums.EdgeLocationType.BotRight, Width, Height, 32);
+            Location = Advanced.SingleLocation(EdgeLocationType.BotRight, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Advanced.SingleLocation(Enums.EdgeLocationType.LeftCenter, Width, Height, 32);
+            Location = Advanced.SingleLocation(EdgeLocationType.LeftCenter, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Advanced.SingleLocation(Enums.EdgeLocationType.RightCenter, Width, Height, 32);
+            Location = Advanced.SingleLocation(EdgeLocationType.RightCenter, Width, Height, 32);
             Thread.Sleep(750);
-            Location = Advanced.SingleLocation(Enums.EdgeLocationType.CalcCenter, Width, Height);
+            Location = Advanced.SingleLocation(EdgeLocationType.CalcCenter, Width, Height);
             Thread.Sleep(750);
-            Location = Advanced.SingleLocation(Enums.EdgeLocationType.FullCenter, Width, Height);
+            Location = Advanced.SingleLocation(EdgeLocationType.FullCenter, Width, Height);
         }
 
         private void Button9_Click(object sender, EventArgs e)

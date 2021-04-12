@@ -141,6 +141,101 @@ namespace Taskbar
         public class Simple
         {
             /// <summary>
+            /// Gets taskbar size.
+            /// </summary>
+            /// <returns></returns>
+            public static Size Size(Screen Screen)
+            {
+                try
+                {
+                    int Width = Screen.Bounds.Width - Screen.WorkingArea.Width;
+                    int Height = Screen.Bounds.Height - Screen.WorkingArea.Height;
+
+                    return Detect(Screen) switch
+                    {
+                        Enums.LocationType.Left => new(Width == 0 ? 2 : Width, Screen.Bounds.Height),
+                        Enums.LocationType.Top => new(Screen.Bounds.Width, Height == 0 ? 2 : Height),
+                        Enums.LocationType.Right => new(Width == 0 ? 2 : Width, Screen.Bounds.Height),
+                        _ => new(Screen.Bounds.Width, Height == 0 ? 2 : Height),
+                    };
+                }
+                catch
+                {
+                    throw new Exception(Values.Exception);
+                }
+            }
+
+            /// <summary>
+            /// Gets taskbar size.
+            /// </summary>
+            /// <returns></returns>
+            public static Size SingleSize
+            {
+                get
+                {
+                    try
+                    {
+                        return Size(Screen.PrimaryScreen);
+                    }
+                    catch
+                    {
+                        throw new Exception(Values.Exception);
+                    }
+                }
+            }
+
+            /// <summary>
+            /// Gets detect multiple screen taskbar size list value.
+            /// </summary>
+            public static List<Size> MultiSizeList
+            {
+                get
+                {
+                    try
+                    {
+                        List<Size> Result = new();
+
+                        foreach (Screen Screen in Screen.AllScreens)
+                        {
+                            Result.Add(Size(Screen));
+                        }
+
+                        return Result;
+                    }
+                    catch
+                    {
+                        throw new Exception(Values.Exception);
+                    }
+                }
+            }
+
+            /// <summary>
+            /// Gets detect multiple screen taskbar size dictionary value.
+            /// </summary>
+            public static Dictionary<int, Size> MultiSizeDictionary
+            {
+                get
+                {
+                    try
+                    {
+                        Dictionary<int, Size> Result = new();
+                        int Count = 0;
+
+                        foreach (Screen Screen in Screen.AllScreens)
+                        {
+                            Result.Add(Count++, Size(Screen));
+                        }
+
+                        return Result;
+                    }
+                    catch
+                    {
+                        throw new Exception(Values.Exception);
+                    }
+                }
+            }
+
+            /// <summary>
             /// Gets detect screen taskbar location.
             /// </summary>
             /// <param name="Screen"></param>
@@ -581,9 +676,16 @@ namespace Taskbar
                 {
                     try
                     {
-                        //Detecting position
-                        //width - height
-                        return new(0, 0);
+                        int Width = Data.Rect.Right - Data.Rect.Left;
+                        int Height = Data.Rect.Bot - Data.Rect.Top;
+
+                        return Position switch
+                        {
+                            Enums.LocationType.Left => new(AutoHide ? 2 : Data.Rect.Right, Data.Rect.Bot),
+                            Enums.LocationType.Top => new(Data.Rect.Right, AutoHide ? 2 : Data.Rect.Bot),
+                            Enums.LocationType.Right => new(AutoHide ? 2 : Width, Data.Rect.Bot),
+                            _ => new(Data.Rect.Right, AutoHide ? 2 : Height),
+                        };
                     }
                     catch
                     {
