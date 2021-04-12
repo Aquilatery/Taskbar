@@ -37,13 +37,23 @@ namespace Taskbar
         /// </summary>
         private class Shared
         {
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="Screen"></param>
+            /// <param name="Edge"></param>
+            /// <param name="Width"></param>
+            /// <param name="Height"></param>
+            /// <param name="Pixel"></param>
+            /// <param name="Type"></param>
+            /// <returns></returns>
             public static Point Location(Screen Screen, Enums.EdgeLocationType Edge, int Width, int Height, int Pixel = 32, Enums.Type Type = Enums.Type.Simple)
             {
                 try
                 {
                     Enums.LocationType LocationType = Type switch
                     {
-                        Enums.Type.Advanced => Simple.Detect(Screen), //Change function advanced detection
+                        Enums.Type.Advanced => Advanced.Position,
                         _ => Simple.Detect(Screen),
                     };
 
@@ -372,7 +382,7 @@ namespace Taskbar
                     };
 
                     //Get the taskbar window rect in screen coordinates
-                    GetWindowRect(Handle, ref Values.BarData.Rect);
+                    _ = GetWindowRect(Handle, ref Values.BarData.Rect);
                 }
                 catch
                 {
@@ -562,6 +572,65 @@ namespace Taskbar
             }
 
             /// <summary>
+            /// Gets taskbar size.
+            /// </summary>
+            /// <returns></returns>
+            public static Size Size()
+            {
+                try
+                {
+                    //Detecting position
+                    //width - height
+                    return new(0, 0);
+                }
+                catch
+                {
+                    throw new Exception(Values.Exception);
+                }
+            }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="Screen"></param>
+            /// <param name="Edge"></param>
+            /// <param name="Width"></param>
+            /// <param name="Height"></param>
+            /// <param name="Pixel"></param>
+            /// <returns></returns>
+            public static Point Location(Screen Screen, Enums.EdgeLocationType Edge, int Width, int Height, int Pixel = 32)
+            {
+                try
+                {
+                    return Shared.Location(Screen, Edge, Width, Height, Pixel, Enums.Type.Advanced);
+                }
+                catch
+                {
+                    throw new Exception(Values.Exception);
+                }
+            }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="Edge"></param>
+            /// <param name="Width"></param>
+            /// <param name="Height"></param>
+            /// <param name="Pixel"></param>
+            /// <returns></returns>
+            public static Point SingleLocation(Enums.EdgeLocationType Edge, int Width, int Height, int Pixel = 32)
+            {
+                try
+                {
+                    return Location(Screen.PrimaryScreen, Edge, Width, Height, Pixel);
+                }
+                catch
+                {
+                    throw new Exception(Values.Exception);
+                }
+            }
+
+            /// <summary>
             /// 
             /// </summary>
             /// <param name="Screen"></param>
@@ -729,11 +798,10 @@ namespace Taskbar
             {
                 try
                 {
-                    //! SHAppBarMessage returns IntPtr.Zero **if it fails**
-                    //return SHAppBarMessage(Enums.MessageType.GetTaskbarPos, ref Values.BarData) != IntPtr.Zero;
-                    SHAppBarMessage(Enums.MessageType.GetTaskbarPos, ref Values.BarData);
+                    RefreshData();
 
-                    return RefreshData();
+                    //! SHAppBarMessage returns IntPtr.Zero **if it fails**
+                    return SHAppBarMessage(Enums.MessageType.GetTaskbarPos, ref Values.BarData) != IntPtr.Zero;
                 }
                 catch
                 {

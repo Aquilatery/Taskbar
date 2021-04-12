@@ -45,6 +45,7 @@
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -129,7 +130,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(324, 246);
+            this.button9.Location = new System.Drawing.Point(12, 316);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(150, 64);
             this.button9.TabIndex = 8;
@@ -139,7 +140,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(12, 316);
+            this.button10.Location = new System.Drawing.Point(168, 316);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(150, 64);
             this.button10.TabIndex = 9;
@@ -149,7 +150,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(168, 316);
+            this.button11.Location = new System.Drawing.Point(324, 316);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(150, 64);
             this.button11.TabIndex = 10;
@@ -159,7 +160,7 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(12, 386);
+            this.button12.Location = new System.Drawing.Point(168, 386);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(150, 64);
             this.button12.TabIndex = 11;
@@ -169,7 +170,7 @@
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(324, 316);
+            this.button13.Location = new System.Drawing.Point(12, 386);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(150, 64);
             this.button13.TabIndex = 12;
@@ -207,11 +208,22 @@
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.Button16_Click);
             // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(324, 246);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(150, 64);
+            this.button17.TabIndex = 16;
+            this.button17.Text = "Advanced\r\nSingle Location";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.Button17_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(486, 462);
+            this.Controls.Add(this.button17);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
@@ -228,7 +240,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -258,5 +270,6 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button17;
     }
 }
