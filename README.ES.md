@@ -11,3 +11,53 @@
 [![NuGet](https://img.shields.io/nuget/dt/Taskbar)](https://www.nuget.org/api/v2/package/Taskbar)
 
 # Bienvenido a Taskbar
+Taskbar es una biblioteca de Detección de Barra de Tareas. Proporciona comodidad con los diversos métodos de detección que ofrece.
+
+## Colaboradores
+
+Gracias a estas personas maravillosas ([emoji clave](https://allcontributors.org/docs/es-es/emoji-key)):
+
+<table>
+  <tr>
+    <td align="center">
+		<a href="https://github.com/Taiizor">
+			<img src="https://avatars3.githubusercontent.com/u/41683699?s=460&v=4" width="80px;" alt="Taiizor"/>
+			<br/>
+			<sub>
+				<b>Taiizor</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Soferity/Taskbar/commits?author=Taiizor" title="Código">💻</a>
+		<a href="https://www.taiizor.com" title="Ideas & Planificación, Comentarios">🤔</a>
+	</td>
+  </tr>
+</table>
+
+Este proyecto sigue la especificación de [todos los contribuyentes](https://github.com/all-contributors/all-contributors). ¡Contribuciones de cualquier tipo de bienvenida!
+
+## Partidarios
+
+<table>
+  <tr>
+    <td align="center">
+		<a href="https://github.com/Soferity">
+			<img src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4" width="80px;" alt="Soferity"/>
+			<br/>
+			<sub>
+				<b>Soferity</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Soferity" target="_blank" title="Contenido">🖋</a>
+	</td>
+  </tr>
+</table>
+
+## Utilizar
+
+Paso 1：Agregue una referencia a Taskbar o busque Taskbar en el NuGet;
+
+```Install-Package Taskbar```
+
+Paso 2：Disfruta de las conversiones
