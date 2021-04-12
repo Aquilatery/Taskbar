@@ -98,6 +98,13 @@ namespace Taskbar
                             Enums.LocationType.Left => new Point(Screen.Bounds.Width - Screen.WorkingArea.Width + Pixel, (Screen.Bounds.Height / 2) - (Height / 2)),
                             _ => new Point(Pixel, (Screen.Bounds.Height / 2) - (Height / 2)),
                         },
+                        Enums.EdgeLocationType.RightCenter => LocationType switch
+                        {
+                            Enums.LocationType.Bot => new Point(Screen.WorkingArea.Width - (Width + Pixel), (Screen.Bounds.Height / 2) - (Height / 2) - (Screen.Bounds.Height - Screen.WorkingArea.Height) / 2),
+                            Enums.LocationType.Top => new Point(Screen.WorkingArea.Width - (Width + Pixel), Screen.Bounds.Height - Screen.WorkingArea.Height + (Screen.WorkingArea.Height / 2) - (Height / 2)),
+                            Enums.LocationType.Left => new Point(Screen.WorkingArea.Width - (Width - (Screen.Bounds.Width - Screen.WorkingArea.Width) + Pixel), (Screen.Bounds.Height / 2) - (Height / 2)),
+                            _ => new Point(Screen.WorkingArea.Width - (Width + Pixel), (Screen.Bounds.Height / 2) - (Height / 2)),
+                        },
                         Enums.EdgeLocationType.CalcCenter => LocationType switch
                         {
                             Enums.LocationType.Bot => new Point((Screen.Bounds.Width / 2) - (Width / 2), (Screen.Bounds.Height / 2) - (Height / 2) - (Screen.Bounds.Height - Screen.WorkingArea.Height) / 2),
