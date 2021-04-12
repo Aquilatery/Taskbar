@@ -66,4 +66,4 @@ Adım 2：Tespitlerin tadını çıkarın
 
 ### Taskbar CR
 
-![TaskbarCR](https://raw.githubusercontent.com/Soferity/Taskbar/develop/.screenshots/CR.png)
+![TaskbarCRCatcher](https://raw.githubusercontent.com/Soferity/Taskbar/develop/.screenshots/CR.png)
