@@ -67,3 +67,7 @@ Step 2：Enjoy detections
 ### Taskbar CR
 
 [![TaskbarCRCatcher](https://raw.githubusercontent.com/Soferity/Taskbar/develop/.screenshots/CR.png)](https://github.com/Soferity/Taskbar/tree/develop/src/Taskbar_CR "TaskbarCRCatcher")
+
+#### Show
+
+[![TaskbarCRShow](https://raw.githubusercontent.com/Soferity/Taskbar/develop/.screenshots/CR.gif)](https://github.com/Soferity/Taskbar/tree/develop/src/Taskbar_CR "TaskbarCRShow")
