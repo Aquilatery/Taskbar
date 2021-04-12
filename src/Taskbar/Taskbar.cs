@@ -575,17 +575,20 @@ namespace Taskbar
             /// Gets taskbar size.
             /// </summary>
             /// <returns></returns>
-            public static Size Size()
+            public static Size Size
             {
-                try
+                get
                 {
-                    //Detecting position
-                    //width - height
-                    return new(0, 0);
-                }
-                catch
-                {
-                    throw new Exception(Values.Exception);
+                    try
+                    {
+                        //Detecting position
+                        //width - height
+                        return new(0, 0);
+                    }
+                    catch
+                    {
+                        throw new Exception(Values.Exception);
+                    }
                 }
             }
 

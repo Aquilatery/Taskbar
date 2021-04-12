@@ -61,3 +61,9 @@ Adım 1：Referans olarak Taskbar'ı ekleyin veya NuGet üzerinden Taskbar'ı ar
 ```Install-Package Taskbar```
 
 Adım 2：Tespitlerin tadını çıkarın
+
+## Demolar
+
+### Taskbar CR
+
+![TaskbarCR](https://raw.githubusercontent.com/Soferity/Taskbar/develop/.screenshots/CR.png)

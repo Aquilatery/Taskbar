@@ -61,3 +61,9 @@ Step 1：Add a reference to Taskbar or search for Taskbar on the NuGet;
 ```Install-Package Taskbar```
 
 Step 2：Enjoy detections
+
+## Demos
+
+### Taskbar CR
+
+![TaskbarCRCatcher](https://raw.githubusercontent.com/Soferity/Taskbar/develop/.screenshots/CR.png)

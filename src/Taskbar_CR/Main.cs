@@ -1,10 +1,14 @@
-﻿using System;
+﻿#region Imports
+
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 using Taskbar.Enum;
 using static Taskbar.Taskbar;
+
+#endregion
 
 namespace Taskbar_CR
 {
@@ -252,6 +256,11 @@ namespace Taskbar_CR
         private void Button7_Click(object sender, EventArgs e)
         {
             Advanced.Show();
+        }
+
+        private void Button18_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Width: " + Advanced.Size.Width + "\nHeight: " + Advanced.Size.Height);
         }
 
         private void Button17_Click(object sender, EventArgs e)
