@@ -13,7 +13,7 @@
     <Title>Taskbar</Title>
     <PackageId>Taskbar</PackageId>
     <Authors>Taiizor</Authors>
-    <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
+    <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) Soferity</Copyright>
     <Summary>Best with multi-screen taskbar detection.</Summary>
     <Description>$(Summary)
 .NET Windows Taskbar Detection - $(PackageId)</Description>
@@ -30,7 +30,7 @@ Changes are detailed at https://github.com/Soferity/Taskbar/releases</PackageRel
     <RepositoryUrl>git://github.com/Soferity/Taskbar</RepositoryUrl>
     <PackageDescription>$(Description)</PackageDescription>
     <PackageIcon>TASKBAR.png</PackageIcon>
-    <Company>$(Authors)</Company>
+    <Company>Soferity</Company>
     <Owners>$(Authors)</Owners>
     <AnalysisLevel>preview</AnalysisLevel>
     <LangVersion>preview</LangVersion>

@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Taskbar CR")]
 [assembly: AssemblyDescription("Taskbar CR v1.0.0.5")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Taiizor")]
+[assembly: AssemblyCompany("Soferity")]
 [assembly: AssemblyProduct("Taskbar CR")]
-[assembly: AssemblyCopyright("Copyright © 2021 Taiizor")]
+[assembly: AssemblyCopyright("Copyright © 2021 Soferity")]
 [assembly: AssemblyTrademark("Taskbar")]
 [assembly: AssemblyCulture("")]
 
