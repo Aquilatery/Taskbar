@@ -49,7 +49,7 @@ Changes are detailed at https://github.com/Soferity/Taskbar/releases</PackageRel
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub">
-      <Version>1.1.0</Version>
+      <Version>1.1.1</Version>
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
   </ItemGroup>
