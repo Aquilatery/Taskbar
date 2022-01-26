@@ -16,7 +16,7 @@ using Taskbar.Value;
 //     Creator: Taiizor
 //     Website: www.Soferity.com
 //     Created: 11.Apr.2021
-//     Changed: 25.Dec.2021
+//     Changed: 26.Jan.2022
 //     Version: 1.0.1.6
 //
 // |---------DO-NOT-REMOVE---------|
