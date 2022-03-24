@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Soferity LLC")]
 [assembly: AssemblyProduct("Taskbar CR")]
-[assembly: AssemblyCopyright("Copyright © 2021 Soferity LLC")]
+[assembly: AssemblyCopyright("Copyright © 2022 Soferity LLC")]
 [assembly: AssemblyTrademark("Taskbar")]
 [assembly: AssemblyCulture("")]
 

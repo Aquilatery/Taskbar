@@ -14,9 +14,9 @@ using Taskbar.Value;
 // |---------DO-NOT-REMOVE---------|
 //
 //     Creator: Taiizor
-//     Website: www.Soferity.com
+//     Website: www.Vegalya.com
 //     Created: 11.Apr.2021
-//     Changed: 26.Jan.2022
+//     Changed: 24.Mar.2022
 //     Version: 1.0.1.6
 //
 // |---------DO-NOT-REMOVE---------|
