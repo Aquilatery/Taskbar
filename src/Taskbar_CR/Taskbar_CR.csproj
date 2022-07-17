@@ -9,7 +9,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <AnalysisLevel>preview</AnalysisLevel>
     <LangVersion>preview</LangVersion>
-    <NeutralLanguage>en</NeutralLanguage>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+	<Configurations>Debug;GitHub;Release</Configurations>
     <NoWarn>CA1416</NoWarn>
   </PropertyGroup>
   <PropertyGroup>

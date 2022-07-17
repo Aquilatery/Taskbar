@@ -34,13 +34,14 @@ Changes are detailed at https://github.com/Soferity/Taskbar/releases</PackageRel
     <Owners>$(Authors)</Owners>
     <AnalysisLevel>preview</AnalysisLevel>
     <LangVersion>preview</LangVersion>
-    <NeutralLanguage>en</NeutralLanguage>
+    <NeutralLanguage>en-GB</NeutralLanguage>
     <FileVersion>$(Version)</FileVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	<Configurations>Debug;GitHub;Release</Configurations>
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
 
