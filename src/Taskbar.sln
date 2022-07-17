@@ -10,15 +10,20 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		GitHub|Any CPU = GitHub|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}.GitHub|Any CPU.ActiveCfg = GitHub|Any CPU
+		{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}.GitHub|Any CPU.Build.0 = GitHub|Any CPU
 		{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FE14002-9328-4DE6-B1B9-C71B26BDE83E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2B020FFF-04E2-442F-8B36-F08A6E9B634C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2B020FFF-04E2-442F-8B36-F08A6E9B634C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B020FFF-04E2-442F-8B36-F08A6E9B634C}.GitHub|Any CPU.ActiveCfg = GitHub|Any CPU
+		{2B020FFF-04E2-442F-8B36-F08A6E9B634C}.GitHub|Any CPU.Build.0 = GitHub|Any CPU
 		{2B020FFF-04E2-442F-8B36-F08A6E9B634C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B020FFF-04E2-442F-8B36-F08A6E9B634C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
