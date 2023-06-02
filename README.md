@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/Soferity/Taskbar/develop/.images/Logo.png)
+![Logo](.images/Logo.png)
 
 ![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.8-blue)
 ![Dot-Net-Core-Version](https://img.shields.io/badge/.NET%20Core-%3E%3D3.1-blue)
@@ -28,7 +28,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 		</a>
 		<br/>
 		<a href="https://github.com/Soferity/Taskbar/commits?author=Taiizor" title="Code">💻</a>
-		<a href="https://www.taiizor.com" title="Ideas & Planning, Feedback">🤔</a>
+		<a href="https://www.vegalya.com" title="Ideas & Planning, Feedback">🤔</a>
 	</td>
   </tr>
 </table>
@@ -65,8 +65,8 @@ Step 2：Enjoy detections
 
 ### Taskbar CR
 
-[![TaskbarCRCatcher](https://raw.githubusercontent.com/Soferity/Taskbar/develop/.screenshots/CR.png)](https://github.com/Soferity/Taskbar/tree/develop/src/Taskbar_CR "TaskbarCRCatcher")
+[![TaskbarCRCatcher](.screenshots/CR.png)](https://github.com/Aquilatery/Taskbar/tree/develop/src/Taskbar_CR "TaskbarCRCatcher")
 
 #### Show
 
-[![TaskbarCRShow](https://raw.githubusercontent.com/Soferity/Taskbar/develop/.screenshots/CR.gif)](https://github.com/Soferity/Taskbar/tree/develop/src/Taskbar_CR "TaskbarCRShow")
+[![TaskbarCRShow](.screenshots/CR.gif)](https://github.com/Aquilatery/Taskbar/tree/develop/src/Taskbar_CR "TaskbarCRShow")
