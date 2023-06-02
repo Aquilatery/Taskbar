@@ -27,7 +27,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 			</sub>
 		</a>
 		<br/>
-		<a href="https://github.com/Soferity/Taskbar/commits?author=Taiizor" title="Code">💻</a>
+		<a href="https://github.com/Aquilatery/Taskbar/commits?author=Taiizor" title="Code">💻</a>
 		<a href="https://www.vegalya.com" title="Ideas & Planning, Feedback">🤔</a>
 	</td>
   </tr>
@@ -65,8 +65,8 @@ Step 2：Enjoy detections
 
 ### Taskbar CR
 
-[![TaskbarCRCatcher](.screenshots/CR.png)](https://github.com/Aquilatery/Taskbar/tree/develop/src/Taskbar_CR "TaskbarCRCatcher")
+[![TaskbarCRCatcher](.screenshots/CR.png)](src/Taskbar_CR "TaskbarCRCatcher")
 
 #### Show
 
-[![TaskbarCRShow](.screenshots/CR.gif)](https://github.com/Aquilatery/Taskbar/tree/develop/src/Taskbar_CR "TaskbarCRShow")
+[![TaskbarCRShow](.screenshots/CR.gif)](src/Taskbar_CR "TaskbarCRShow")

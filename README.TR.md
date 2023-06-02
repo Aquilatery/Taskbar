@@ -27,7 +27,7 @@ Bu harika insanlara teşekkürler ([emoji anahtarı](https://allcontributors.org
 			</sub>
 		</a>
 		<br/>
-		<a href="https://github.com/Soferity/Taskbar/commits?author=Taiizor" title="Kodlama">💻</a>
+		<a href="https://github.com/Aquilatery/Taskbar/commits?author=Taiizor" title="Kodlama">💻</a>
 		<a href="https://www.vegalya.com" title="Fikirler & Planlama, Geri Bildirim">🤔</a>
 	</td>
   </tr>
@@ -65,8 +65,8 @@ Adım 2：Tespitlerin tadını çıkarın
 
 ### Taskbar CR
 
-[![TaskbarCRCatcher](.screenshots/CR.png)](https://github.com/Aquilatery/Taskbar/tree/develop/src/Taskbar_CR "TaskbarCRCatcher")
+[![TaskbarCRCatcher](.screenshots/CR.png)](src/Taskbar_CR "TaskbarCRCatcher")
 
 #### Gösterim
 
-[![TaskbarCRShow](.screenshots/CR.gif)](https://github.com/Aquilatery/Taskbar/tree/develop/src/Taskbar_CR "TaskbarCRShow")
+[![TaskbarCRShow](.screenshots/CR.gif)](src/Taskbar_CR "TaskbarCRShow")
